@@ -1,6 +1,8 @@
 <template lang="pug">
 AppHeader
-p asd
+.wrapper-content
+  .container
+    router-view
 AppFooter
 </template>
 
