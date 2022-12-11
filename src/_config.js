@@ -1,12 +1,4 @@
 /* eslint-disable quotes */
-export const process = {
-  dev: true,
-};
-
-export const site = {
-  home: process.dev ? "http://localhost:8080/" : "...",
-};
-
 export const app = {
   title: "V-Notes",
 };
