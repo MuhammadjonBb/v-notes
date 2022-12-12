@@ -10,7 +10,7 @@
         :key="item.title"
         )
         span {{item.title}}
-    button(type="submit").btn.btn-primary Add new note
+    button(type="submit").btn.btnPrimary Add new note
 </template>
 
 <script>
@@ -89,5 +89,8 @@ export default {
 
 .tag-checkbox {
   display: none;
+}
+textarea {
+  border: 1px solid #42b883 !important;
 }
 </style>

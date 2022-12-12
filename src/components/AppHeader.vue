@@ -2,7 +2,7 @@
 header.navbar
   .container
     .navbar-content
-      a.navbar-logo(href="/") {{ title }}
+      router-link.navbar-logo(to="/") <span class="logo-item">V</span>-{{title}}
       ul.navbar-list
         li.navbar-item(v-for="link in links" :key="link.alias")
           router-link.navbar-link(:to="link.url") {{ link.title }}
@@ -21,3 +21,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.logo-item {
+  color: #42b883;
+}
+</style>

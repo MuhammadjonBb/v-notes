@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 export const app = {
-  title: "V-Notes",
+  title: "Notes",
 };
 
 export const links = [

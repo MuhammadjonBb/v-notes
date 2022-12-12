@@ -61,12 +61,12 @@ export default {
   user-select: none;
   cursor: pointer;
   &.isActive {
-    background-color: #444ce0;
+    background-color: #42b883;
     color: #fff;
   }
   &.isPreview {
     padding: 0;
-    color: #444ce0;
+    color: #42b883;
     cursor: default;
     &:before {
       content: "#";
