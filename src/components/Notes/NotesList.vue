@@ -4,16 +4,13 @@
     .note-header {{ note.title }}
       span.note-close(@click="$emit('onRemove', index)") &#10005;
     .note-footer
-      .tags-list(v-if="note.tags.length")
-        TagItem(v-for="tag in note.tags" :item="tag" :key="tag" isPreview)
+      ul.tags-list(v-if="note.tags.length")
+        li(v-for="tag in note.tags" :key="tag").tag-item.isPreview {{tag}}
 </template>
 
 <script>
 /* eslint-disable quotes */
-import TagItem from "@/components/UI/TagItem.vue";
-
 export default {
-  components: { TagItem },
   props: {
     items: {
       type: Array,
@@ -54,5 +51,29 @@ export default {
 }
 .note-close {
   cursor: pointer;
+}
+
+.tag-item {
+  padding: 8px 22px;
+  margin-right: 10px;
+  background-color: #fff;
+  border-radius: 22px;
+  user-select: none;
+  cursor: pointer;
+  &.isActive {
+    background-color: #444ce0;
+    color: #fff;
+  }
+  &.isPreview {
+    padding: 0;
+    color: #444ce0;
+    cursor: default;
+    &:before {
+      content: "#";
+    }
+  }
+  &:last-child {
+    margin-right: 0;
+  }
 }
 </style>

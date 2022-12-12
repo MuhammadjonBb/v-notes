@@ -5,7 +5,7 @@ List(@onRemove="handleRemove" :items="notes")
 
 <script>
 /* eslint-disable quotes */
-import Form from "@/components/Notes/AppForm.vue";
+import Form from "@/components/Notes/NotesForm.vue";
 import List from "@/components/Notes/NotesList.vue";
 
 export default {

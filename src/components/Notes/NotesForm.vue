@@ -15,10 +15,7 @@
 
 <script>
 /* eslint-disable quotes */
-import TagItem from "@/components/UI/TagItem.vue";
-
 export default {
-  components: { TagItem },
   data() {
     return {
       tags: [
@@ -48,14 +45,23 @@ export default {
   methods: {
     onSubmit() {
       this.$emit("onSubmit", this.note);
+      this.tags.forEach((tag, index) => {
+        this.tags[index].isActive = false;
+      });
       this.note = {
         title: "",
-        tags: [],
       };
     },
     onTagClick(index) {
       this.tags[index].isActive = !this.tags[index].isActive;
-      this.note.tags = this.tags.filter((tag) => tag.isActive).map((tag) => tag.title);
+    },
+  },
+  watch: {
+    tags: {
+      handler() {
+        this.note.tags = this.tags.filter((tag) => tag.isActive).map((tag) => tag.title);
+      },
+      deep: true,
     },
   },
 };
