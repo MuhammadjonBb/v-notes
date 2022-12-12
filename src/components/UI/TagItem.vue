@@ -1,20 +1,15 @@
 <template lang="pug">
-.tags-list
-  .tag-item(
-      v-for="item in items"
-      :key="item.title"
-      :class="{isPreview: isPreview}, {isActive: isActive}"
-      @click="$emit('onItemClick', item.title)"
-    )
-    span {{ item.title }}
+span.tag-item(
+  :class="{isPreview: isPreview}"
+) {{ item }}
 </template>
 
 <script>
 /* eslint-disable quotes */
 export default {
   props: {
-    items: {
-      type: Array,
+    item: {
+      type: String,
       required: true,
     },
     isPreview: {
@@ -22,15 +17,21 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+  methods: {
+    onItemClick(title) {
+      this.$emit("onItemClick", title);
+      this.isActive = true;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
-.tags-list {
-  padding: 10px 0;
-  display: flex;
-  justify-content: center;
-}
 .tag-item {
   padding: 8px 22px;
   margin-right: 10px;

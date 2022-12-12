@@ -24,9 +24,31 @@ export default {
       ],
     };
   },
+  mounted() {
+    this.getNotes();
+  },
+  watch: {
+    notes: {
+      handler(updatedList) {
+        localStorage.setItem("notes", JSON.stringify(updatedList));
+      },
+      deep: true,
+    },
+  },
   methods: {
-    handleSubmit(note) {
-      return note;
+    getNotes() {
+      const localNotes = localStorage.getItem("notes");
+      if (localNotes) {
+        this.notes = JSON.parse(localNotes);
+      }
+    },
+    handleSubmit({ title, tags }) {
+      const note = {
+        title,
+        tags,
+      };
+      console.log(note);
+      this.notes.push(note);
     },
     handleRemove(index) {
       this.notes.splice(index, 1);

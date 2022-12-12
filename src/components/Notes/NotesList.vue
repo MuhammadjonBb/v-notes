@@ -4,15 +4,16 @@
     .note-header {{ note.title }}
       span.note-close(@click="$emit('onRemove', index)") &#10005;
     .note-footer
-      TagsList(v-if="note.tags.length" :items="note.tags" isPreview)
+      .tags-list(v-if="note.tags.length")
+        TagItem(v-for="tag in note.tags" :item="tag" :key="tag" isPreview)
 </template>
 
 <script>
 /* eslint-disable quotes */
-import TagsList from "@/components/UI/TagsList.vue";
+import TagItem from "@/components/UI/TagItem.vue";
 
 export default {
-  components: { TagsList },
+  components: { TagItem },
   props: {
     items: {
       type: Array,
