@@ -50,6 +50,7 @@ export default {
       });
       this.note = {
         title: "",
+        tags: [],
       };
     },
     onTagClick(index) {
